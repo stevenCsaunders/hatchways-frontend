@@ -16,9 +16,9 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 								src={student.pic}
 								alt={`${student.firstName} profile pic`}
 							/>
-							<div className='student-content'>
+							<h3 className='student-content'>
 								{student.firstName} {student.lastName}
-							</div>
+							</h3>
 						</li>
 					)
 				})}

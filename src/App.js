@@ -35,7 +35,7 @@ function App() {
 	}
 	return (
 		<div className='App'>
-			<header className='App-header'>
+			<main className='App-header'>
 				{isLoading ? (
 					<div>Loading...</div>
 				) : (
@@ -46,7 +46,7 @@ function App() {
             s
 					/>
 				)}
-			</header>
+			</main>
 		</div>
 	)
 }

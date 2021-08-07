@@ -34,8 +34,8 @@ function App() {
 		setSearch(e.target.value.toLowerCase())
 	}
 	return (
-		<div className='App'>
-			<main className='App-header'>
+		<div className='app'>
+			<main>
 				{isLoading ? (
 					<div>Loading...</div>
 				) : (

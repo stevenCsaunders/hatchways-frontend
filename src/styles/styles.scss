@@ -1,27 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap');
+@import 'generic';
+@import 'elements';
+@import 'components';
 
 //Settings
 :root {
+	//Fonts
 	--primary-font: 'Raleway', sans-serif;
-	--primary-font-color: #991e1e;
+
+	--light-font: 200;
+	--regular-font: 400;
+	--heavy-font: 700;
+
+	--sm-font: .75rem;
+	--reg-font: 1rem;
+	--lg-font: 1.5rem;
+	--xl-font: 2.5rem;
+
+	//Colors
+	--dark-primary: rgb(90, 90, 90);
+	--light-grey: #EFEFEF;
+	--light-primary: white;
+
+	//Spacing
+
 }
-
-//Tools
-
-//Generic
-
-//Elements
-ul {
-  list-style: none;
-}
-
-h3 {
-	font-family: var(--primary-font);
-	color: var(--primary-color);
-}
-
-//Objects
-
-//Components
-
-//Overides

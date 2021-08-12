@@ -6,9 +6,10 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 	return (
 		<div className='student-search-wrapper'>
 			<input
+				className='search-input'
 				type='text'
 				value={search}
-				placeholder='Search Students'
+				placeholder='Search by name'
 				onChange={handleChange}
 			/>
 			<ul className='student-list'>
@@ -37,9 +38,7 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 									<li>{student.skill}</li>
 									<li>{averageGrade.toFixed(3)}</li>
 								</ul>
-								<div
-									className='grades-wrapper'
-								>
+								<div className='grades-wrapper'>
 									<ul className='grades-list'>
 										{student.grades.map((grade, index) => {
 											return (
@@ -54,14 +53,11 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 										})}
 									</ul>
 								</div>
-								<div className='toggle-wrapper'>
-									<button>
-											<FontAwesomeIcon
-												icon={faPlus}
-												size='3x'
-											/>
-									</button>
-								</div>
+							</div>
+							<div className='toggle-wrapper'>
+								<button>
+									<FontAwesomeIcon icon={faPlus} size='3x' />
+								</button>
 							</div>
 						</li>
 					)

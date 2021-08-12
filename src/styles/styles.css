@@ -1,15 +1,251 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap");
-:root {
-  --primary-font: 'Raleway', sans-serif;
-  --primary-font-color: #991e1e;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap");
+html {
+  box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+body ::-webkit-scrollbar {
+  width: 8px;
+  /* width of the entire scrollbar */
+}
+
+body ::-webkit-scrollbar-track {
+  opacity: 0;
+  border-radius: 5px;
+  /* color of the tracking area */
+}
+
+body ::-webkit-scrollbar-thumb {
+  background-color: var(--dark-primary);
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+}
+
+main {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+code, kbd, samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+img {
+  border-style: none;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"], [type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-grey);
 }
 
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
   font-family: var(--primary-font);
-  color: var(--primary-color);
+  color: var(--dark-primary);
+}
+
+.student-search-wrapper {
+  width: 60%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--light-primary);
+  border-radius: 10px;
+  overflow-y: auto;
+  padding: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding: 1rem 0;
+  border-color: var(--light-grey);
+  font-family: var(--primary-font);
+  font-size: var(--lg-font);
+  font-weight: var(--light-font);
+}
+
+.student-list {
+  width: 80%;
+}
+
+.student-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+:root {
+  --primary-font: 'Raleway', sans-serif;
+  --light-font: 200;
+  --regular-font: 400;
+  --heavy-font: 700;
+  --sm-font: .75rem;
+  --reg-font: 1rem;
+  --lg-font: 1.5rem;
+  --xl-font: 2.5rem;
+  --dark-primary: rgb(90, 90, 90);
+  --light-grey: #EFEFEF;
+  --light-primary: white;
 }
 /*# sourceMappingURL=styles.css.map */

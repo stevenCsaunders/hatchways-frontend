@@ -1,0 +1,34 @@
+.student-search-wrapper {
+	width: 60%;
+  height:  75vh;
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+  background-color: var(--light-primary);
+  border-radius: 10px;
+  overflow-y: auto;
+  padding: 0 1rem;
+}
+
+.search-input {
+	width: 100%;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+  padding: 1rem 0;
+  border-color: var(--light-grey);
+  font-family: var(--primary-font);
+  font-size: var(--lg-font);
+  font-weight: var(--light-font);
+}
+
+.student-list {
+	width: 80%;
+
+}
+
+.student-item {
+	display: grid;
+	grid-template-columns: 1fr 2fr 3fr;
+  border-bottom: 1px solid var(--light-grey);
+}

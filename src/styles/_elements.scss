@@ -1,19 +1,24 @@
 main {
 	width: 100vw;
-  height:  100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--light-grey);
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--light-grey);
 }
 
 ul {
 	list-style: none;
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 h3 {
 	font-family: var(--primary-font);
 	color: var(--dark-primary);
 }
+
+input:focus {
+    outline: thin white;
+    border-color: var(--dark-primary);
+  }

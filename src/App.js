@@ -43,7 +43,6 @@ function App() {
 						filteredStudents={filteredStudents}
 						handleChange={handleChange}
             search={search}
-            s
 					/>
 				)}
 			</main>

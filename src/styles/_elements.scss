@@ -5,7 +5,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	background-color: var(--light-grey);
-}
+ }
 
 ul {
 	list-style: none;
@@ -15,10 +15,14 @@ ul {
 
 h3 {
 	font-family: var(--primary-font);
-	color: var(--dark-primary);
+	font-size: var(--xl-font);
+	font-weight: var(--heavy-font);
+  color: var(--black);
 }
 
-input:focus {
-    outline: thin white;
-    border-color: var(--dark-primary);
-  }
+input {
+	&:focus {
+		outline: thin white;
+		border-color: var(--dark-primary);
+	}
+}

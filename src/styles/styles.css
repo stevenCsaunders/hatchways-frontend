@@ -203,7 +203,9 @@ ul {
 
 h3 {
   font-family: var(--primary-font);
-  color: var(--dark-primary);
+  font-size: var(--xl-font);
+  font-weight: var(--heavy-font);
+  color: var(--black);
 }
 
 input:focus {
@@ -212,15 +214,15 @@ input:focus {
 }
 
 .student-search-wrapper {
-  width: 60%;
+  width: 60vw;
+  max-width: 75rem;
   height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--light-primary);
-  border-radius: 10px;
-  overflow-y: auto;
-  padding: 0 0.5rem;
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding-left: 0.5rem;
 }
 
 .search-input {
@@ -239,11 +241,38 @@ input:focus {
 
 .student-list {
   width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--white) transparent;
+}
+
+.student-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.student-list::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.student-list::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+  border-radius: 1rem;
+}
+
+.student-list:hover {
+  scrollbar-color: var(--black) transparent;
+}
+
+.student-list:hover::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+  border-radius: 1rem;
 }
 
 .student-item {
   display: grid;
-  grid-template-columns: 1fr 5fr 2fr;
+  grid-template-columns: 2fr 6fr auto;
   border-bottom: 1px solid var(--light-grey);
   padding: 1rem 0;
 }
@@ -266,14 +295,34 @@ input:focus {
 
 .student-item .info-wrapper h3 {
   margin: 0;
-  font-size: var(--xl-font);
-  font-weight: var(--heavy-font);
   text-transform: uppercase;
-  color: black;
+}
+
+.student-item .info-wrapper .student-info {
+  padding: 1rem;
+  font-family: var(--primary-font);
+  color: var(--black);
+  line-height: 1.5;
 }
 
 .student-item .grades-wrapper {
-  display: none;
+  visibility: hidden;
+}
+
+.student-item .toggle-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.student-item .toggle-wrapper button {
+  background: none;
+  border: none;
+}
+
+.student-item .toggle-wrapper button svg {
+  width: 60%;
+  color: var(--md-grey);
 }
 
 :root {
@@ -285,8 +334,10 @@ input:focus {
   --reg-font: 1rem;
   --lg-font: 1.5rem;
   --xl-font: 2.5rem;
-  --dark-primary: rgb(90, 90, 90);
+  --black: #000;
+  --dark-primary: rgb(146, 146, 146);
+  --md-grey: #ACACAC;
   --light-grey: #EFEFEF;
-  --light-primary: white;
+  --white: #FFF;
 }
 /*# sourceMappingURL=styles.css.map */

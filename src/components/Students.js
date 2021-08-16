@@ -12,18 +12,18 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 	return (
 		<div className='student-search-wrapper'>
 			<input
+				className='search-input'
 				type='text'
 				value={search}
-				placeholder='Search Students'
+				placeholder='Search by name'
 				onChange={handleChange}
 			/>
-			<ul className='student-list'>
+			<ul className='student-list scroll'>
 				{filteredStudents.map((student) => {
 					const averageGrade =
 						student.grades.reduce((accumulator, currentValue) => {
 							return +currentValue + +accumulator
 						}) / student.grades.length
-
 					return (
 						<li className='student-item' key={student.id}>
 							<div className='image-wrapper'>
@@ -34,18 +34,19 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 								/>
 							</div>
 							<div className='info-wrapper'>
-								<h3 className='student-content'>
+								<h3 className='student-name'>
 									{student.firstName} {student.lastName}
 								</h3>
-								<ul>
-									<li>{student.email}</li>
-									<li>{student.company}</li>
-									<li>{student.skill}</li>
-									<li>{averageGrade.toFixed(3)}</li>
+								<ul className='student-info'>
+									<li>Email: {student.email}</li>
+									<li>Compnay: {student.company}</li>
+									<li>Skill: {student.skill}</li>
+									<li>Average: {averageGrade.toFixed(3)}</li>
 								</ul>
 								<div
 									className='grades-wrapper'
-									hidden={isHidden}
+									hidden='true'
+									aria-hidden='true'
 								>
 									<ul className='grades-list'>
 										{student.grades.map((grade, index) => {

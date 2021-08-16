@@ -34,8 +34,8 @@ function App() {
 		setSearch(e.target.value.toLowerCase())
 	}
 	return (
-		<div className='App'>
-			<header className='App-header'>
+		<div className='app'>
+			<main>
 				{isLoading ? (
 					<div>Loading...</div>
 				) : (
@@ -43,10 +43,9 @@ function App() {
 						filteredStudents={filteredStudents}
 						handleChange={handleChange}
             search={search}
-            s
 					/>
 				)}
-			</header>
+			</main>
 		</div>
 	)
 }

@@ -1,0 +1,28 @@
+main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--light-grey);
+ }
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+h3 {
+	font-family: var(--primary-font);
+	font-size: var(--xl-font);
+	font-weight: var(--heavy-font);
+  color: var(--black);
+}
+
+input {
+	&:focus {
+		outline: thin white;
+		border-color: var(--dark-primary);
+	}
+}

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap');
+@import 'generic';
+@import 'elements';
+@import 'components';
+
+//Settings
+:root {
+	//Fonts
+	--primary-font: 'Raleway', sans-serif;
+
+	--light-font: 200;
+	--regular-font: 400;
+	--heavy-font: 700;
+
+	--sm-font: .75rem;
+	--reg-font: 1rem;
+	--lg-font: 1.5rem;
+	--xl-font: 2.5rem;
+
+	//Colors
+	--black: #000;
+	--dark-primary: rgb(146, 146, 146);
+	--md-grey: #ACACAC;
+	--light-grey: #EFEFEF;
+	--white: #FFF;
+
+	//Spacing
+
+}

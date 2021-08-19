@@ -283,7 +283,7 @@ input:focus {
 }
 
 .student-item .image-wrapper img {
-  align-self: center;
+  align-self: flex-start;
   width: 100%;
   border: 1px solid var(--dark-primary);
   border-radius: 50%;
@@ -306,7 +306,16 @@ input:focus {
 }
 
 .student-item .grades-wrapper {
-  visibility: hidden;
+  overflow: hidden;
+}
+
+.student-item .grades-wrapper .grades-list {
+  transition: height 1s ease-in-out;
+  height: 0;
+}
+
+.student-item .grades-wrapper .grades-list:active {
+  height: auto;
 }
 
 .student-item .toggle-wrapper {

@@ -57,7 +57,7 @@
 		margin: 1rem;
 		display: flex;
 		img {
-			align-self: center;
+			align-self: flex-start;
 			width: 100%;
 			border: 1px solid var(--dark-primary);
 			border-radius: 50%;
@@ -77,7 +77,16 @@
 		}
 	}
 	.grades-wrapper {
-		visibility: hidden;
+		overflow: hidden;
+		
+		.grades-list {
+			transition: height 1s ease-in-out;
+			height: 0;
+		}
+		.grades-list:active {
+			height: auto;
+		}
+
 	}
 	.toggle-wrapper {
 		display: flex;

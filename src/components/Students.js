@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
+import Student from  './Student.js'
 
 const Students = ({ search, filteredStudents, handleChange }) => {
 
@@ -12,54 +12,14 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 				placeholder='Search by name'
 				onChange={handleChange}
 			/>
-			<ul className='student-list scroll'>
+			<ul className='student-list'>
 				{filteredStudents.map((student) => {
 					const averageGrade =
 						student.grades.reduce((accumulator, currentValue) => {
-							return +currentValue + +accumulator
+							return ((+currentValue) + (+accumulator))
 						}) / student.grades.length
-
 					return (
-						<li className='student-item' key={student.id}>
-							<div className='image-wrapper'>
-								<img
-									className='student-avatar'
-									src={student.pic}
-									alt={`${student.firstName} profile pic`}
-								/>
-							</div>
-							<div className='info-wrapper'>
-								<h3 className='student-name'>
-									{student.firstName} {student.lastName}
-								</h3>
-								<ul className='student-info'>
-									<li>Email: {student.email}</li>
-									<li>Compnay: {student.company}</li>
-									<li>Skill: {student.skill}</li>
-									<li>Average: {averageGrade.toFixed(3)}</li>
-								</ul>
-								<div className='grades-wrapper' hidden='true' aria-hidden='true'>
-									<ul className='grades-list'>
-										{student.grades.map((grade, index) => {
-											return (
-												<li
-													className='grade-item'
-													key={index}
-												>
-													Test {(index += 1)}: {grade}
-													%
-												</li>
-											)
-										})}
-									</ul>
-								</div>
-							</div>
-							<div className='toggle-wrapper'>
-								<button>
-									<FontAwesomeIcon icon={faPlus} size='3x' />
-								</button>
-							</div>
-						</li>
+						<Student key={student.id} averageGrade={averageGrade} student={student} />
 					)
 				})}
 			</ul>
@@ -68,3 +28,4 @@ const Students = ({ search, filteredStudents, handleChange }) => {
 }
 
 export default Students
+

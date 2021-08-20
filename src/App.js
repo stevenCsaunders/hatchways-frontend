@@ -33,6 +33,7 @@ function App() {
 	const handleChange = (e) => {
 		setSearch(e.target.value.toLowerCase())
 	}
+	
 	return (
 		<div className='app'>
 			<main>

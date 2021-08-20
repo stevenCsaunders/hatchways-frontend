@@ -4,16 +4,11 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 const Student = ({ student, averageGrade }) => {
 	const [isHidden, setIsHidden] = useState(true)
-  const gradesRef = useRef()
-	
-  const toggle = () => {
-    isHidden
-			? (gradesRef.current.style.height = 'auto')
-			: (gradesRef.current.style.height = '0')
+	const gradesRef = useRef()
 
+	const toggle = () => {
 		setIsHidden(!isHidden)
-
-  }
+	}
 
 	return (
 		<li className='student-item' key={student.id}>
@@ -34,8 +29,17 @@ const Student = ({ student, averageGrade }) => {
 					<li>Skill: {student.skill}</li>
 					<li>Average: {averageGrade.toFixed(3)}%</li>
 				</ul>
-				<div className='grades-wrapper' aria-hidden={isHidden}>
-					<ul className='grades-list' ref={gradesRef}>
+				<div
+					className='grades-wrapper'
+					style={
+						isHidden
+							? { height: `0px` }
+							: { height: `${gradesRef.current.scrollHeight}px` }
+					}
+					ref={gradesRef}
+					aria-hidden={isHidden}
+				>
+					<ul className='grades-list'>
 						{student.grades.map((grade, index) => {
 							return (
 								<li className='grade-item' key={index}>
@@ -47,11 +51,11 @@ const Student = ({ student, averageGrade }) => {
 				</div>
 			</div>
 			<div className='toggle-wrapper'>
-				<button onClick={toggle}>
-					{isHidden ? (
-						<FontAwesomeIcon icon={faPlus} size='3x' />
-					) : (
+				<button className='toggle' onClick={toggle}>
+					{!isHidden ? (
 						<FontAwesomeIcon icon={faMinus} size='3x' />
+					) : (
+						<FontAwesomeIcon icon={faPlus} size='3x' />
 					)}
 				</button>
 			</div>

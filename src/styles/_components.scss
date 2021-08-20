@@ -70,24 +70,28 @@
 			text-transform: uppercase;
 		}
 		.student-info {
-			padding: 1rem;
-			font-family: var(--primary-font);
+			padding: 1rem 1.5rem;
 			color: var(--black);
 			line-height: 1.5;
 		}
 	}
 	.grades-wrapper {
+		height: 0;
 		overflow: hidden;
-		
+		padding-left: 1.5rem;
+		transition: height .5s ease;
+
 		.grades-list {
-			transition: height 1s ease-in-out;
-			height: 0;
+			background: none;
+			line-height: 1.5;
 		}
 		.grades-list:active {
 			height: auto;
 		}
-
 	}
+.open {
+	height: 100%;
+}
 	.toggle-wrapper {
 		display: flex;
 		justify-content: flex-end;

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap");
 html {
   box-sizing: border-box;
   line-height: 1.15;
@@ -13,6 +13,7 @@ html {
 
 body {
   margin: 0;
+  font-family: var(--primary-font);
 }
 
 main {
@@ -299,23 +300,29 @@ input:focus {
 }
 
 .student-item .info-wrapper .student-info {
-  padding: 1rem;
-  font-family: var(--primary-font);
+  padding: 1rem 1.5rem;
   color: var(--black);
   line-height: 1.5;
 }
 
 .student-item .grades-wrapper {
+  height: 0;
   overflow: hidden;
+  padding-left: 1.5rem;
+  transition: height .5s ease;
 }
 
 .student-item .grades-wrapper .grades-list {
-  transition: height 1s ease-in-out;
-  height: 0;
+  background: none;
+  line-height: 1.5;
 }
 
 .student-item .grades-wrapper .grades-list:active {
   height: auto;
+}
+
+.student-item .open {
+  height: 100%;
 }
 
 .student-item .toggle-wrapper {
@@ -336,7 +343,7 @@ input:focus {
 
 :root {
   --primary-font: 'Raleway', sans-serif;
-  --light-font: 200;
+  --light-font: 100;
   --regular-font: 400;
   --heavy-font: 700;
   --sm-font: .75rem;

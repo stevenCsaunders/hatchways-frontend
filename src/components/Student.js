@@ -23,6 +23,7 @@ const Student = ({ student, averageGrade }) => {
 				<h3 className='student-name'>
 					{student.firstName} {student.lastName}
 				</h3>
+
 				<ul className='student-info'>
 					<li>Email: {student.email}</li>
 					<li>Compnay: {student.company}</li>
@@ -48,6 +49,18 @@ const Student = ({ student, averageGrade }) => {
 							)
 						})}
 					</ul>
+				</div>
+				<div className='tag-wrapper'>
+					<ul className='tag-list'>
+						<li>Tag 1</li>
+						<li>Tag 1</li>
+						<li>Tag 1</li>
+					</ul>
+					<input
+						className='tag-input'
+						placeholder="Add tag"
+						type='text'
+					/>
 				</div>
 			</div>
 			<div className='toggle-wrapper'>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap");
 html {
   box-sizing: border-box;
   line-height: 1.15;
@@ -209,6 +209,15 @@ h3 {
   color: var(--black);
 }
 
+input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-family: var(--primary-font);
+  font-size: var(--lg-font);
+  font-weight: var(--light-font);
+}
+
 input:focus {
   outline: thin white;
   border-color: var(--dark-primary);
@@ -228,16 +237,15 @@ input:focus {
 
 .search-input {
   width: 100%;
-  border-top: none;
-  border-right: none;
-  border-left: none;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 1rem 0;
   border-color: var(--light-grey);
-  font-family: var(--primary-font);
-  font-size: var(--lg-font);
-  font-weight: var(--light-font);
+}
+
+.tag-input {
+  font-size: var(---font);
+  padding: 10px 5px;
 }
 
 .student-list {
@@ -291,7 +299,7 @@ input:focus {
 }
 
 .student-item .info-wrapper {
-  padding: 0 1rem;
+  padding-left: 1.5rem;
 }
 
 .student-item .info-wrapper h3 {
@@ -309,7 +317,7 @@ input:focus {
   height: 0;
   overflow: hidden;
   padding-left: 1.5rem;
-  transition: height .5s ease;
+  transition: height 0.5s ease;
 }
 
 .student-item .grades-wrapper .grades-list {
@@ -317,8 +325,20 @@ input:focus {
   line-height: 1.5;
 }
 
-.student-item .grades-wrapper .grades-list:active {
-  height: auto;
+.student-item .tag-wrapper {
+  padding-left: 1.5rem;
+}
+
+.student-item .tag-wrapper .tag-list {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.student-item .tag-wrapper .tag-list li {
+  background: var(--light-grey);
+  border-radius: 5px;
+  padding: 1rem;
 }
 
 .student-item .open {
@@ -343,7 +363,7 @@ input:focus {
 
 :root {
   --primary-font: 'Raleway', sans-serif;
-  --light-font: 100;
+  --light-font: 200;
   --regular-font: 400;
   --heavy-font: 700;
   --sm-font: .75rem;

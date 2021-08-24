@@ -11,16 +11,14 @@
 }
 .search-input {
 	width: 100%;
-	border-top: none;
-	border-right: none;
-	border-left: none;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	padding: 1rem 0;
 	border-color: var(--light-grey);
-	font-family: var(--primary-font);
-	font-size: var(--lg-font);
-	font-weight: var(--light-font);
+}
+.tag-input {
+	font-size: var(---font);
+	padding: 10px 5px;
 }
 
 .student-list {
@@ -64,7 +62,7 @@
 		}
 	}
 	.info-wrapper {
-		padding: 0 1rem;
+		padding-left: 1.5rem;
 		h3 {
 			margin: 0;
 			text-transform: uppercase;
@@ -79,19 +77,29 @@
 		height: 0;
 		overflow: hidden;
 		padding-left: 1.5rem;
-		transition: height .5s ease;
+		transition: height 0.5s ease;
 
 		.grades-list {
 			background: none;
 			line-height: 1.5;
 		}
-		.grades-list:active {
-			height: auto;
+	}
+	.tag-wrapper {
+		padding-left: 1.5rem;
+		.tag-list {
+			display: flex;
+			gap: 0.5rem;
+			margin: 1rem 0;
+			li {
+				background: var(--light-grey);
+				border-radius: 5px;
+				padding: 1rem;
+			}
 		}
 	}
-.open {
-	height: 100%;
-}
+	.open {
+		height: 100%;
+	}
 	.toggle-wrapper {
 		display: flex;
 		justify-content: flex-end;

@@ -4,7 +4,7 @@ import Students from './components/Students'
 function App() {
 	const baseURL = `https://api.hatchways.io/assessment/students/`
 	const [students, setStudents] = useState([])
-	const [search, setSearch] = useState('')
+	const [nameSearch, setNameSearch] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
@@ -24,14 +24,14 @@ function App() {
 	}, [baseURL])
 
 	const filteredStudents = [...students].filter((student) =>
-		student.firstName.toLowerCase().includes(search) ||
-		student.lastName.toLowerCase().includes(search)
+		student.firstName.toLowerCase().includes(nameSearch) ||
+		student.lastName.toLowerCase().includes(nameSearch)
 			? student
 			: null
 	)
 
 	const handleChange = (e) => {
-		setSearch(e.target.value.toLowerCase())
+		setNameSearch(e.target.value.toLowerCase())
 	}
 	
 	return (
@@ -43,7 +43,7 @@ function App() {
 					<Students
 						filteredStudents={filteredStudents}
 						handleChange={handleChange}
-            search={search}
+            search={nameSearch}
 					/>
 				)}
 			</main>

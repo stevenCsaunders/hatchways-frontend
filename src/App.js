@@ -4,7 +4,8 @@ import Students from './components/Students'
 function App() {
 	const baseURL = `https://api.hatchways.io/assessment/students/`
 	const [students, setStudents] = useState([])
-	const [search, setSearch] = useState('')
+	const [nameSearch, setNameSearch] = useState('')
+	const [tagSearch, setTagSearch ] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
@@ -23,17 +24,13 @@ function App() {
 		fetchData()
 	}, [baseURL])
 
-	const filteredStudents = [...students].filter((student) =>
-		student.firstName.toLowerCase().includes(search) ||
-		student.lastName.toLowerCase().includes(search)
-			? student
-			: null
-	)
-
-	const handleChange = (e) => {
-		setSearch(e.target.value.toLowerCase())
+	const handleNameSearch = (e) => {
+		setNameSearch(e.target.value.toLowerCase())
 	}
-	
+	const handleTagSearch = (e) => {
+		setTagSearch(e.target.value.toLowerCase())
+	}
+
 	return (
 		<div className='app'>
 			<main>
@@ -41,9 +38,11 @@ function App() {
 					<div>Loading...</div>
 				) : (
 					<Students
-						filteredStudents={filteredStudents}
-						handleChange={handleChange}
-            search={search}
+						students={students}
+						handleNameSearch={handleNameSearch}
+						handleTagSearch={handleTagSearch}
+						nameSearch={nameSearch}
+						tagSearch={tagSearch}
 					/>
 				)}
 			</main>

@@ -1,14 +1,15 @@
 import { useState, useRef } from 'react'
+import Tags from './Tags'
+import Grades from './Grades'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
-const Student = ({ student, averageGrade }) => {
+const Student = ({ student, averageGrade, handleTag, handleDelete, tags }) => {
 	const [isHidden, setIsHidden] = useState(true)
+
 	const gradesRef = useRef()
 
-	const toggle = () => {
-		setIsHidden(!isHidden)
-	}
+	const handleHide = () => setIsHidden(!isHidden)
 
 	return (
 		<li className='student-item' key={student.id}>
@@ -23,48 +24,25 @@ const Student = ({ student, averageGrade }) => {
 				<h3 className='student-name'>
 					{student.firstName} {student.lastName}
 				</h3>
-
 				<ul className='student-info'>
 					<li>Email: {student.email}</li>
 					<li>Compnay: {student.company}</li>
 					<li>Skill: {student.skill}</li>
 					<li>Average: {averageGrade.toFixed(3)}%</li>
 				</ul>
-				<div
-					className='grades-wrapper'
-					style={
-						isHidden
-							? { height: `0px` }
-							: { height: `${gradesRef.current.scrollHeight}px` }
-					}
-					ref={gradesRef}
-					aria-hidden={isHidden}
-				>
-					<ul className='grades-list'>
-						{student.grades.map((grade, index) => {
-							return (
-								<li className='grade-item' key={index}>
-									Test {(index += 1)}: {grade}%
-								</li>
-							)
-						})}
-					</ul>
-				</div>
-				<div className='tag-wrapper'>
-					<ul className='tag-list'>
-						<li>Tag 1</li>
-						<li>Tag 1</li>
-						<li>Tag 1</li>
-					</ul>
-					<input
-						className='tag-input'
-						placeholder="Add tag"
-						type='text'
-					/>
-				</div>
+				<Grades
+					gradesRef={gradesRef}
+					isHidden={isHidden}
+					student={student}
+				/>
+				<Tags
+					tags={tags}
+					handleTag={handleTag}
+					handleDelete={handleDelete}
+				/>
 			</div>
 			<div className='toggle-wrapper'>
-				<button className='toggle' onClick={toggle}>
+				<button className='toggle' onClick={handleHide}>
 					{!isHidden ? (
 						<FontAwesomeIcon icon={faMinus} size='3x' />
 					) : (

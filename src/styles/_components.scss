@@ -93,7 +93,17 @@
 			li {
 				background: var(--light-grey);
 				border-radius: 5px;
-				padding: 1rem;
+				padding: 0.5rem;
+				span {
+					margin-right: 1rem;
+				}
+				svg path {
+					color: var(--md-grey);
+					opacity: 0.3;
+					&:hover {
+						opacity: 0.7;
+					}
+				}
 			}
 		}
 	}
@@ -110,6 +120,13 @@
 			svg {
 				width: 60%;
 				color: var(--md-grey);
+				path {
+					color: var(--md-grey);
+					opacity: 0.3;
+					&:hover {
+						opacity: 0.7;
+					}
+				}
 			}
 		}
 	}

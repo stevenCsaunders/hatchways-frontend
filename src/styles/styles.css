@@ -338,7 +338,20 @@ input:focus {
 .student-item .tag-wrapper .tag-list li {
   background: var(--light-grey);
   border-radius: 5px;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+
+.student-item .tag-wrapper .tag-list li span {
+  margin-right: 1rem;
+}
+
+.student-item .tag-wrapper .tag-list li svg path {
+  color: var(--md-grey);
+  opacity: 0.3;
+}
+
+.student-item .tag-wrapper .tag-list li svg path:hover {
+  opacity: 0.7;
 }
 
 .student-item .open {
@@ -359,6 +372,15 @@ input:focus {
 .student-item .toggle-wrapper button svg {
   width: 60%;
   color: var(--md-grey);
+}
+
+.student-item .toggle-wrapper button svg path {
+  color: var(--md-grey);
+  opacity: 0.3;
+}
+
+.student-item .toggle-wrapper button svg path:hover {
+  opacity: 0.7;
 }
 
 :root {

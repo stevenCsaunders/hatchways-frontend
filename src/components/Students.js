@@ -1,5 +1,4 @@
 import Student from './Student.js'
-import { useState } from 'react'
 
 const Students = ({
 	nameSearch,
@@ -8,7 +7,7 @@ const Students = ({
 	handleNameSearch,
 	handleTagSearch,
 }) => {
-	const [tags, setTags] = useState([])
+	
 
 	const studentsFilter = [
 		...students.filter((student) =>
@@ -19,34 +18,24 @@ const Students = ({
 		),
 	]
 
-	const handleTag = (e) => {
-		if (e.key === 'Enter' && e.target.value) {
-			setTags([...tags, e.target.value])
-			e.target.value = ''
-		}
-	}
+	//take value from tags input
+	//search through tags based on the value
+	//compare value of input to all tags
+	//return student if tag has input value
 
-	const handleDelete = (index) => {
-		setTags([
-			...tags.filter((tag) => {
-				return tags.indexOf(tag) !== index
-			}),
-		])
-	}
 
 	const filteredStudents = studentsFilter.map((student) => {
+		
 		const averageGrade =
 			student.grades.reduce((accumulator, currentValue) => {
 				return +currentValue + +accumulator
 			}) / student.grades.length
+			console.log(student)
 		return (
 			<Student
 				key={student.id}
 				averageGrade={averageGrade}
 				student={student}
-				handleTag={handleTag}
-				handleDelete={handleDelete}
-				tags={tags}
 			/>
 		)
 	})

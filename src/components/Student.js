@@ -4,12 +4,29 @@ import Grades from './Grades'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
-const Student = ({ student, averageGrade, handleTag, handleDelete, tags }) => {
+const Student = ({ student, averageGrade }) => {
 	const [isHidden, setIsHidden] = useState(true)
+	const [tags, setTags] = useState([])
 
 	const gradesRef = useRef()
 
 	const handleHide = () => setIsHidden(!isHidden)
+
+	const handleTag = (e) => {
+		if (e.key === 'Enter' && e.target.value) {
+			setTags([...tags, e.target.value])
+			e.target.value = ''
+		}
+	}
+
+	const handleDelete = (index) => {
+		setTags([
+			...tags.filter((tag) => {
+				return tags.indexOf(tag) !== index
+			}),
+		])
+		student.tags = [...tags]
+	}
 
 	return (
 		<li className='student-item' key={student.id}>

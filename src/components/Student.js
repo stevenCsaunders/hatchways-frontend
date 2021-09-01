@@ -7,13 +7,14 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 const Student = ({ student, averageGrade }) => {
 	const [isHidden, setIsHidden] = useState(true)
 	const [tags, setTags] = useState([])
-
+	student.tags =[...tags]
 	const gradesRef = useRef()
 
 	const handleHide = () => setIsHidden(!isHidden)
 
 	const handleTag = (e) => {
 		if (e.key === 'Enter' && e.target.value) {
+			e.preventDefault()
 			setTags([...tags, e.target.value])
 			e.target.value = ''
 		}

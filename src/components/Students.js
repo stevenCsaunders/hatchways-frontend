@@ -36,6 +36,7 @@ const Students = ({
 				key={student.id}
 				averageGrade={averageGrade}
 				student={student}
+				tagSearch={tagSearch}
 			/>
 		)
 	})

@@ -6,8 +6,8 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 const Student = ({ student, averageGrade }) => {
 	const [isHidden, setIsHidden] = useState(true)
-	const [tags, setTags] = useState([])
-	student.tags =[...tags]
+	const [tags, setTags] = useState(student.tags)
+	student.tags = [...tags]
 	const gradesRef = useRef()
 
 	const handleHide = () => setIsHidden(!isHidden)
@@ -26,7 +26,6 @@ const Student = ({ student, averageGrade }) => {
 				return tags.indexOf(tag) !== index
 			}),
 		])
-		student.tags = [...tags]
 	}
 
 	return (

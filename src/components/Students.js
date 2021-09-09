@@ -1,5 +1,4 @@
 import Student from './Student.js'
-import { useState } from 'react'
 
 const Students = ({
 	nameSearch,
@@ -8,45 +7,34 @@ const Students = ({
 	handleNameSearch,
 	handleTagSearch,
 }) => {
-	const [tags, setTags] = useState([])
+	const nameFilter = students.filter((student) =>
+		student.firstName.toLowerCase().includes(nameSearch) ||
+		student.lastName.toLowerCase().includes(nameSearch)
+			? student
+			: null
+	)
 
-	const studentsFilter = [
-		...students.filter((student) =>
-			student.firstName.toLowerCase().includes(nameSearch) ||
-			student.lastName.toLowerCase().includes(nameSearch)
-				? student
-				: null
-		),
-	]
+	const tagFilter = nameFilter.filter((student) =>
+		student.tags.some((tag) =>
+			tag.toLowerCase().includes(tagSearch) ? student : null
+		)
+			? student
+			: null
+	)
 
-	const handleTag = (e) => {
-		if (e.key === 'Enter' && e.target.value) {
-			setTags([...tags, e.target.value])
-			e.target.value = ''
-		}
-	}
+	console.log(tagFilter)
 
-	const handleDelete = (index) => {
-		setTags([
-			...tags.filter((tag) => {
-				return tags.indexOf(tag) !== index
-			}),
-		])
-	}
-
-	const filteredStudents = studentsFilter.map((student) => {
+	const filteredStudents = nameFilter.map((student) => {
 		const averageGrade =
 			student.grades.reduce((accumulator, currentValue) => {
 				return +currentValue + +accumulator
 			}) / student.grades.length
+
 		return (
 			<Student
 				key={student.id}
 				averageGrade={averageGrade}
 				student={student}
-				handleTag={handleTag}
-				handleDelete={handleDelete}
-				tags={tags}
 			/>
 		)
 	})

@@ -7,7 +7,6 @@ const Students = ({
 	handleNameSearch,
 	handleTagSearch,
 }) => {
-<<<<<<< HEAD
 	const nameFilter = students.filter((student) =>
 		student.firstName.toLowerCase().includes(nameSearch) ||
 		student.lastName.toLowerCase().includes(nameSearch)

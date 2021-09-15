@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import Student from './Student.js'
 
 const Students = ({
@@ -7,24 +8,30 @@ const Students = ({
 	handleNameSearch,
 	handleTagSearch,
 }) => {
-	const nameFilter = students.filter((student) =>
-		student.firstName.toLowerCase().includes(nameSearch) ||
-		student.lastName.toLowerCase().includes(nameSearch)
-			? student
-			: null
-	)
+	const nameInputRef = useRef(null)
+	const tagInputRef = useRef(null)
 
-	const tagFilter = nameFilter.filter((student) =>
-		student.tags.some((tag) =>
-			tag.toLowerCase().includes(tagSearch) ? student : null
+	const studentFilter = () => {
+		const nameFilter = students.filter((student) =>
+			student.firstName.toLowerCase().includes(nameSearch) ||
+			student.lastName.toLowerCase().includes(nameSearch)
+				? student
+				: null
 		)
-			? student
-			: null
-	)
+		const tagFilter = nameFilter.filter((student) =>
+			student.tags.some((tag) =>
+				tag.toLowerCase().includes(tagSearch) ? student : null
+			)
+				? student
+				: null
+		)
+		if (document.activeElement === tagInputRef.current && tagInputRef.current.value !== '') {
+			return tagFilter
+		} 
+		return nameFilter
+	}
 
-	console.log(tagFilter)
-
-	const filteredStudents = nameFilter.map((student) => {
+	const filteredStudents = studentFilter().map((student) => {
 		const averageGrade =
 			student.grades.reduce((accumulator, currentValue) => {
 				return +currentValue + +accumulator
@@ -42,6 +49,7 @@ const Students = ({
 	return (
 		<div className='student-search-wrapper'>
 			<input
+				ref={nameInputRef}
 				className='search-input'
 				type='text'
 				value={nameSearch}
@@ -49,6 +57,7 @@ const Students = ({
 				onChange={handleNameSearch}
 			/>
 			<input
+				ref={tagInputRef}
 				className='search-input'
 				type='text'
 				value={tagSearch}

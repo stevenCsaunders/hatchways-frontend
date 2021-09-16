@@ -1,5 +1,5 @@
+import { useRef } from 'react'
 import Student from './Student.js'
-import { useState } from 'react'
 
 const Students = ({
 	nameSearch,
@@ -8,45 +8,40 @@ const Students = ({
 	handleNameSearch,
 	handleTagSearch,
 }) => {
-	const [tags, setTags] = useState([])
+	const nameInputRef = useRef(null)
+	const tagInputRef = useRef(null)
 
-	const studentsFilter = [
-		...students.filter((student) =>
+	const studentFilter = () => {
+		const nameFilter = students.filter((student) =>
 			student.firstName.toLowerCase().includes(nameSearch) ||
 			student.lastName.toLowerCase().includes(nameSearch)
 				? student
 				: null
-		),
-	]
-
-	const handleTag = (e) => {
-		if (e.key === 'Enter' && e.target.value) {
-			setTags([...tags, e.target.value])
-			e.target.value = ''
-		}
+		)
+		const tagFilter = nameFilter.filter((student) =>
+			student.tags.some((tag) =>
+				tag.toLowerCase().includes(tagSearch) ? student : null
+			)
+				? student
+				: null
+		)
+		if (document.activeElement === tagInputRef.current && tagInputRef.current.value !== '') {
+			return tagFilter
+		} 
+		return nameFilter
 	}
 
-	const handleDelete = (index) => {
-		setTags([
-			...tags.filter((tag) => {
-				return tags.indexOf(tag) !== index
-			}),
-		])
-	}
-
-	const filteredStudents = studentsFilter.map((student) => {
+	const filteredStudents = studentFilter().map((student) => {
 		const averageGrade =
 			student.grades.reduce((accumulator, currentValue) => {
 				return +currentValue + +accumulator
 			}) / student.grades.length
+
 		return (
 			<Student
 				key={student.id}
 				averageGrade={averageGrade}
 				student={student}
-				handleTag={handleTag}
-				handleDelete={handleDelete}
-				tags={tags}
 			/>
 		)
 	})
@@ -54,6 +49,7 @@ const Students = ({
 	return (
 		<div className='student-search-wrapper'>
 			<input
+				ref={nameInputRef}
 				className='search-input'
 				type='text'
 				value={nameSearch}
@@ -61,6 +57,7 @@ const Students = ({
 				onChange={handleNameSearch}
 			/>
 			<input
+				ref={tagInputRef}
 				className='search-input'
 				type='text'
 				value={tagSearch}

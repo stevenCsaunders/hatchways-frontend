@@ -15,7 +15,12 @@ function App() {
 					method: 'GET',
 				})
 				const data = await res.json()
-				setStudents(data[`students`])
+				const { students } = data;
+				setStudents(
+					students.map((student) => {
+						return { ...student, tags: [] }
+					})
+				)
 				setIsLoading(false)
 			} catch (err) {
 				console.error(err)
@@ -43,6 +48,7 @@ function App() {
 						handleTagSearch={handleTagSearch}
 						nameSearch={nameSearch}
 						tagSearch={tagSearch}
+						isLoading={isLoading}
 					/>
 				)}
 			</main>
